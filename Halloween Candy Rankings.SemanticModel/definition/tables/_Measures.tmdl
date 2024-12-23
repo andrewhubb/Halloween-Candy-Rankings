@@ -1,0 +1,499 @@
+table _Measures
+	lineageTag: 5d0490e7-927a-4abc-82c0-f45bf0b79c59
+
+	measure Chocolate = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Chocolate] = 1    
+			)
+			```
+		formatString: 0
+		lineageTag: b1b9eb57-fc8a-49aa-ad9a-983a0ba966eb
+
+	measure Caramel = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Caramel] = 1    
+			)
+			```
+		formatString: 0
+		lineageTag: 246b43c4-33cc-46b2-b24e-7248124e5af6
+
+	measure Fruity = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Fruity] = 1    
+			)
+			```
+		formatString: 0
+		lineageTag: acb2e907-342f-4670-b459-05df6aa4d104
+
+	measure Nuts = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Peanuts & Almonds] = 1    
+			)
+			
+			```
+		formatString: 0
+		lineageTag: d8941903-e4e8-4675-9e2e-31eadef6b893
+
+	measure Nougat = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Nougat] = 1    
+			)
+			```
+		formatString: 0
+		lineageTag: 52c11324-40af-4972-8e43-caeb5f5ebf94
+
+	measure 'Crisped Rice Wafer' = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Crisped Rice Wafer] = 1    
+			)
+			```
+		formatString: 0
+		lineageTag: 4f09243c-8c96-4a43-b222-5214efd0d933
+
+	measure Hard = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Hard] = 1    
+			)
+			```
+		formatString: 0
+		lineageTag: 03792435-c325-4156-9055-188af6118a17
+
+	measure Bar = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Bar] = 1    
+			)
+			```
+		formatString: 0
+		lineageTag: 63d7c09e-a646-418b-9508-1930d5e073e6
+
+	measure 'In a Bag' = ```
+			
+			CALCULATE(
+			    [No. of Candies],
+			    'candy-data'[Packaged] = 1    
+			)
+			```
+		formatString: 0
+		lineageTag: d29a0540-f2ea-43a6-9779-541b41d72433
+
+	measure 'No. of Candies' = ```
+			
+			COUNTROWS('candy-data')
+			
+			```
+		formatString: 0
+		lineageTag: b64d1300-00e9-4912-b335-0d4cdd635230
+
+	measure 'Candy Rank' = ```
+			
+			RANKX(
+			    ALLSELECTED('candy-data'),    
+			    CALCULATE(
+			        MAX('candy-data'[Weighted Score])
+			    ),, 
+			    DESC, 
+			    DENSE
+			)
+			```
+		formatString: 0
+		lineageTag: 03a078e0-834a-4dfa-9004-4c368b1519a9
+
+	measure 'Total Weighted Score' =
+			
+			SUM(
+			    'candy-data'[Weighted Score]
+			)
+		formatString: 0.00
+		lineageTag: 2809be2b-0739-448d-84f9-c4ee52d4656d
+
+	measure 'Top 1 Candy' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Candy Name]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 1
+			    )
+			)
+			```
+		lineageTag: 71ce0c42-a234-42ca-9eb8-fe71da086a70
+
+	measure 'Top 2 Candy' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Candy Name]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 2
+			    )
+			)
+			```
+		lineageTag: dd99b0e3-8da1-487b-8cfb-9959ba9d680a
+
+	measure 'Top 3 Candy' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Candy Name]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 3
+			    )
+			)
+			```
+		lineageTag: b4211c76-c800-43e6-b25b-3c46329adf4a
+
+	measure 'Top 1 Candy URL' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Image_URL]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 1
+			    )    
+			)
+			```
+		lineageTag: 92ef50b8-c22d-4376-85b9-2701762b10b8
+		dataCategory: ImageUrl
+
+	measure 'Top 2 Candy URL' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Image_URL]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 2
+			    )    
+			)
+			```
+		lineageTag: 4d481bc9-8812-47f4-abd3-96487be735af
+		dataCategory: ImageUrl
+
+	measure 'Top 3 Candy URL' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Image_URL]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 3
+			    )    
+			)
+			```
+		lineageTag: e84c3ae0-7e6f-4191-bcd1-3a73aa95bbe4
+
+	measure 'Top 2 Candy Weighted Score %' = ```
+			
+			ROUND(
+			    CALCULATE(
+			        SELECTEDVALUE(
+			            'candy-data'[Weighted Score]
+			        ),
+			        FILTER(
+			            'candy-data', 
+			            [Candy Rank] = 2
+			        )
+			    ),
+			 1) & "%"
+			```
+		lineageTag: 6140728f-8e09-495a-930d-2e2197ba5506
+
+	measure 'Top 1 Candy Weighted Score %' = ```
+			
+			ROUND(
+			    CALCULATE(
+			        SELECTEDVALUE(
+			            'candy-data'[Weighted Score]
+			        ),
+			        FILTER(
+			            'candy-data', 
+			            [Candy Rank] = 1
+			        )
+			    ),
+			 1) & "%"
+			```
+		lineageTag: 7db8feb6-9819-47fd-874c-aa2aa6cf4dcd
+
+	measure 'Top 3 Candy Weighted Score %' = ```
+			
+			ROUND(
+			    CALCULATE(
+			        SELECTEDVALUE(
+			            'candy-data'[Weighted Score]
+			        ),
+			        FILTER(
+			            'candy-data', 
+			            [Candy Rank] = 3
+			        )
+			    ),
+			 1) & "%"
+			```
+		lineageTag: 0257bda3-f9f3-422d-8b1b-9e7bc8a74881
+
+	measure 'Top 1 Candy Rank (BAK)' = ```
+			
+			VAR CandyName = [Top 1 Candy]
+			RETURN
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Rank]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Name] = CandyName
+			    )
+			)
+			 
+			```
+		formatString: 0
+		lineageTag: 74d1cfa2-01d4-4794-9071-862435fcf1ef
+
+	measure 'Top 2 Candy Rank' = ```
+			
+			VAR CandyRow = 
+			    INDEX(2, 
+			        DISTINCT(ALLSELECTED('candy-data')), 
+			        ORDERBY([Candy Rank], ASC)
+			    )
+			RETURN
+			    SELECTCOLUMNS(CandyRow, "Rank", 'candy-data'[Rank])
+			```
+		formatString: 0
+		lineageTag: d3747445-c0d5-4b17-a3ce-198f77b5689d
+
+	measure 'Top 3 Candy Rank' = ```
+			
+			VAR CandyRow = 
+			    INDEX(3, 
+			        DISTINCT(ALLSELECTED('candy-data')), 
+			        ORDERBY([Candy Rank], ASC)
+			    )
+			RETURN
+			    SELECTCOLUMNS(CandyRow, "Rank", 'candy-data'[Rank])
+			```
+		formatString: 0
+		lineageTag: d30a50be-d72b-4a60-a357-777abc0e3784
+
+	measure 'Top 1 Candy Rank' = ```
+			
+			VAR CandyRow = 
+			    INDEX(1, 
+			        DISTINCT(ALLSELECTED('candy-data')), 
+			        ORDERBY([Candy Rank], ASC)
+			    )
+			RETURN
+			    SELECTCOLUMNS(CandyRow, "Rank", 'candy-data'[Rank])
+			```
+		formatString: 0
+		lineageTag: e7bc375f-ee46-47c5-891c-0676bc498659
+
+	measure Transparent =
+			
+			"RGBA(255,255,255,0)"
+		lineageTag: c907fb88-4726-46e8-9b68-3de9cb7f1a92
+
+	measure 'Top 1 Candy Sugar %' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Sugar Percent]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 1
+			    )
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c7dc9c06-8acf-43b5-91bb-dbbbde5e4e33
+
+	measure 'Top 2 Candy Sugar %' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Sugar Percent]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 2
+			    )
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4a1114c7-34ae-4f87-a255-5fc88c030a13
+
+	measure 'Top 3 Candy Sugar %' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Sugar Percent]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 3
+			    )
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f7ba2a41-71c8-435e-91ca-dde3567f333d
+
+	measure 'Top 1 Price Rating %' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Price Percent]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 1
+			    )
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 55607d6e-8807-442c-996a-c1be73ef49a1
+
+	measure 'Top 2 Price Rating %' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Price Percent]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 2
+			    )
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 05a58d33-eafe-46ae-8950-8ff4432fc48a
+
+	measure 'Top 3 Price Rating %' = ```
+			
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'candy-data'[Price Percent]
+			    ),
+			    FILTER(
+			        'candy-data', 
+			        [Candy Rank] = 3
+			    )
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 557c696a-8500-48e8-be33-10f19cc1aece
+
+	measure 'Avg. Weighted Score' = ```
+			
+			AVERAGEX(
+			    'candy-data',
+			    'candy-data'[Weighted Score]
+			)    
+			```
+		lineageTag: 85e644cf-7b8c-43dd-b581-25524b56626d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'No. of Candies by Flavour' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(
+			        'candy-flavours'[Candy Name]
+			    ),
+			    'candy-flavours'[Has Flavour] = 1
+			)    
+			```
+		formatString: 0
+		lineageTag: 7a537e6b-220e-4b7b-8994-c94350b8de2a
+
+	measure 'Avg. Sugar Percent by Flavour' = ```
+			
+			CALCULATE(
+			    AVERAGEX(
+			        'candy-flavours',
+			        'candy-flavours'[Sugar Percent]
+			    ),
+			    'candy-flavours'[Has Flavour] = 1
+			)    
+			```
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: a0942ecd-7645-41c6-b943-b237c672b2de
+
+	measure 'Avg. Price Percent by Flavour' = ```
+			
+			CALCULATE(
+			    AVERAGEX(
+			        'candy-flavours',
+			        'candy-flavours'[Price Percent]
+			    ),
+			    'candy-flavours'[Has Flavour] = 1
+			)    
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 390238da-a8f2-4ede-a657-4d7215cfa05d
+
+	measure 'Avg. Price Percent' =
+			
+			AVERAGEX(
+			    'candy-data',
+			    'candy-data'[Price Percent]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 73e1f210-692c-47d4-950f-cddb93eeb064
+
+	measure 'Avg. Sugar Percent' =
+			
+			AVERAGEX(
+			    'candy-data',
+			    'candy-data'[Sugar Percent]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 5cd2116e-949b-4864-bd87-cc59d764731d
+
+	column Column1
+		dataType: string
+		isHidden
+		lineageTag: b4bc4bd4-6852-4ba5-a0e3-227934fecde6
+		summarizeBy: none
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

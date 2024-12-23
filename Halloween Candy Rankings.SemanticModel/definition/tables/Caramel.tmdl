@@ -1,0 +1,33 @@
+table Caramel
+	lineageTag: 0a505d08-e818-4846-8f78-bd147fa688e5
+
+	column 'Is Caramel'
+		dataType: string
+		lineageTag: efaa8aea-7fe8-45d4-980f-dba8bf61599d
+		summarizeBy: none
+		sourceColumn: Is Caramel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Caramel_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 61c2abd8-9d61-44d2-a6ce-d4160f5eb9b3
+		summarizeBy: none
+		sourceColumn: Caramel_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Caramel = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WikwtVtJRMlSK1YlW8ssHMg2UYmMB", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Is Caramel" = _t, Caramel_Key = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Caramel_Key", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

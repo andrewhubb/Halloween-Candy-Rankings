@@ -1,0 +1,31 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.137.751.0 (24.10)
+
+annotation PBI_QueryOrder = ["candy-data-source","candy-data","File Path","_Measures","Nuts","Chocolate","Fruity","Caramel","Nougat","Crisped Rice Wafer","Hard","Bar","Packaged","candy-image-urls","candy-flavours"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table candy-data
+ref table _Measures
+ref table Nuts
+ref table Chocolate
+ref table Fruity
+ref table Caramel
+ref table Nougat
+ref table 'Crisped Rice Wafer'
+ref table Hard
+ref table Bar
+ref table Packaged
+ref table candy-flavours
+
+ref cultureInfo en-GB
+

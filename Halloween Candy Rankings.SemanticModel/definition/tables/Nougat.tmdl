@@ -1,0 +1,33 @@
+table Nougat
+	lineageTag: 5399bff2-ffac-40a4-af90-db69325456f8
+
+	column 'Is Nougat'
+		dataType: string
+		lineageTag: 17d6d3df-b66b-4c82-9294-2c4fd1212489
+		summarizeBy: none
+		sourceColumn: Is Nougat
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nougat_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 962e19db-77b4-45b6-93ca-2f404fedec98
+		summarizeBy: none
+		sourceColumn: Nougat_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Nougat = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WikwtVtJRMlSK1YlW8ssHMg2UYmMB", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Is Nougat" = _t, Nougat_Key = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Nougat_Key", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,230 @@
+table candy-data
+	lineageTag: f162bb9a-793a-4f6c-a48a-47e208c07f50
+
+	column 'Candy Name'
+		dataType: string
+		lineageTag: 81feed6f-9e9c-4eff-a621-f72f436d68af
+		summarizeBy: none
+		sourceColumn: Candy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sugar Percent'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bed843ac-ed09-4a72-9cf3-78df1e2c0308
+		summarizeBy: sum
+		sourceColumn: Sugar Percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Percent'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d5bfbe94-eaac-4db0-a435-c430bef1123f
+		summarizeBy: sum
+		sourceColumn: Price Percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Win Percent'
+		dataType: double
+		lineageTag: 42f90789-2e0e-43df-a8ed-f2246f0439fa
+		summarizeBy: none
+		sourceColumn: Win Percent
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ff8b5a7-2f77-4202-a5d7-2d8820aeee03
+		summarizeBy: sum
+		sourceColumn: Rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weighted Score'
+		dataType: double
+		lineageTag: aff662ee-2683-4a43-83d5-454df77c9a8a
+		summarizeBy: sum
+		sourceColumn: Weighted Score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Chocolate
+		dataType: int64
+		formatString: 0
+		lineageTag: ce5db12f-2bc5-40f3-813f-3eb2a8a38cda
+		summarizeBy: none
+		sourceColumn: Chocolate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fruity
+		dataType: int64
+		formatString: 0
+		lineageTag: 99c069c4-2d1e-4850-ac41-3cd7ed25e1f7
+		summarizeBy: none
+		sourceColumn: Fruity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Caramel
+		dataType: int64
+		formatString: 0
+		lineageTag: 780005bd-a63a-4f75-8070-e4db8365a89b
+		summarizeBy: none
+		sourceColumn: Caramel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Peanuts & Almonds'
+		dataType: int64
+		formatString: 0
+		lineageTag: f73e951a-8cc8-4520-938c-193f57227cf8
+		summarizeBy: none
+		sourceColumn: Peanuts & Almonds
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nougat
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e8161c0-8b19-4a28-8e25-55291fc6d9fd
+		summarizeBy: none
+		sourceColumn: Nougat
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Crisped Rice Wafer'
+		dataType: int64
+		formatString: 0
+		lineageTag: e88aced5-ad01-4060-8768-3dcd35d3804a
+		summarizeBy: none
+		sourceColumn: Crisped Rice Wafer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hard
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cba36a1-c2e7-4926-acc2-b30e33a279ab
+		summarizeBy: none
+		sourceColumn: Hard
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bar
+		dataType: int64
+		formatString: 0
+		lineageTag: 41debf2b-e3f1-4faa-9044-1b9bdcae26e4
+		summarizeBy: none
+		sourceColumn: Bar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Packaged
+		dataType: int64
+		formatString: 0
+		lineageTag: 31913ccc-cb46-4838-8769-9e1e6488fa5d
+		summarizeBy: none
+		sourceColumn: Packaged
+
+		annotation SummarizationSetBy = Automatic
+
+	column Image_URL
+		dataType: string
+		lineageTag: 918be6f2-703d-4224-afb0-2cd5cf03ae7c
+		summarizeBy: none
+		sourceColumn: Image_URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sugar Group'
+		dataType: string
+		lineageTag: 8d9770ac-88bc-44cb-83d1-acbbec90c7f8
+		summarizeBy: none
+		sourceColumn: Sugar Group
+		sortByColumn: 'Sugar Group Sort Order'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Group'
+		dataType: string
+		lineageTag: 59aed653-32b3-4040-aef4-4102c67beab2
+		summarizeBy: none
+		sourceColumn: Price Group
+		sortByColumn: 'Price Group Sort Order'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sugar Group Sort Order'
+		dataType: int64
+		formatString: 0
+		lineageTag: c3c2bca0-2586-4cb4-95dd-2122628e6307
+		summarizeBy: sum
+		sourceColumn: Sugar Group Sort Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Group Sort Order'
+		dataType: int64
+		formatString: 0
+		lineageTag: 03419dad-07fb-47ea-8b6a-53ea9c8f875c
+		summarizeBy: sum
+		sourceColumn: Price Group Sort Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: fa22b3d2-c652-4861-a642-c2620d0614fe
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition candy-data = m
+		mode: import
+		source = ```
+				let
+				    Source = #"candy-data-source",
+				    #"Added Weighted Score Column" = Table.AddColumn(Source, "Weighted Score", each (0.60 * [winpercent]) + 
+				(0.20 * [sugarpercent]) + 
+				(0.20 * [pricepercent])),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Weighted Score Column",{{"Weighted Score", type number}}),
+				    #"Added Rank" = Table.AddRankColumn( 
+				    #"Changed Type2",
+				    "Rank",   
+				    { "Weighted Score", Order.Descending },   
+				    [ RankKind = RankKind.Competition ]
+				 ),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Rank",{{"competitorname", "Candy Name"}, {"chocolate", "Chocolate"}, {"fruity", "Fruity"}, {"caramel", "Caramel"}, {"peanutyalmondy", "Peanuts & Almonds"}, {"nougat", "Nougat"}, {"crispedricewafer", "Crisped Rice Wafer"}, {"hard", "Hard"}, {"bar", "Bar"}, {"pluribus", "In a Bag"}, {"sugarpercent", "Sugar Percent"}, {"pricepercent", "Price Percent"}, {"winpercent", "Win Percent"}}),
+				    #"Merged Queries" = Table.NestedJoin(#"Renamed Columns", {"Candy Name"}, #"candy-image-urls", {"Candy Name"}, "candy-image-urls", JoinKind.LeftOuter),
+				    #"Expanded candy-image-urls" = Table.ExpandTableColumn(#"Merged Queries", "candy-image-urls", {"Image_URL"}, {"Image_URL"}),
+				    #"Added Sugar Group Column" = Table.AddColumn(#"Expanded candy-image-urls", "Sugar Group", each if [Sugar Percent] <= 0.33 then "Low" else if [Sugar Percent] <= 0.66 then "Medium" else "High"),
+				    #"Added Price Group Column" = Table.AddColumn(#"Added Sugar Group Column", "Price Group", each if [Price Percent] <= 0.33 then "Low" else if [Price Percent] <= 0.66 then "Medium" else "High"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Price Group Column",{{"Sugar Group", type text}, {"Price Group", type text}}),
+				    #"Added Sugar Group Sort Orderl Column1" = Table.AddColumn(#"Changed Type", "Sugar Group Sort Order", each if [Sugar Group] = "Low" then 1 else if [Sugar Group] = "Medium" then 2 else 3),
+				    #"Added Price Group Sort Order  Column" = Table.AddColumn(#"Added Sugar Group Sort Orderl Column1", "Price Group Sort Order", each if [Price Group] = "Low" then 1 else if [Price Group] = "Medium" then 2 else 3),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Price Group Sort Order  Column",{{"Sugar Group Sort Order", Int64.Type}, {"Price Group Sort Order", Int64.Type}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type1",{{"In a Bag", "Packaged"}}),
+				    #"Added Type Column" = Table.AddColumn(#"Renamed Columns1", "Type", each if [Hard] = 1 then "Hard" else if [Bar] = 1 then "Bar" else if [Packaged] = 1 then "Packaged" else "Other"),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Type Column",{{"Type", type text}})
+				in
+				    #"Changed Type3"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

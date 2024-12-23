@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Halloween Candy Rankings"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6e08964e-2ab7-4544-aaec-f2a24acbe46f"
+  }
+}

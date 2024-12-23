@@ -1,0 +1,33 @@
+table Bar
+	lineageTag: 7b12326f-5f10-4a3b-8cbb-b6b3ee4dcdeb
+
+	column 'Is a Bar'
+		dataType: string
+		lineageTag: d7a6ba98-2de3-42e8-a6b6-a1e0400f7f7e
+		summarizeBy: none
+		sourceColumn: Is a Bar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bar_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4531a70b-5545-43c7-9a2b-52933128e8de
+		summarizeBy: none
+		sourceColumn: Bar_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bar = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WikwtVtJRMlSK1YlW8ssHMg2UYmMB", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Is a Bar" = _t, Bar_Key = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Bar_Key", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

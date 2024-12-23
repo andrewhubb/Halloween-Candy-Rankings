@@ -1,0 +1,33 @@
+table Fruity
+	lineageTag: 7255d30b-a1c5-4d81-81af-10050adf6036
+
+	column 'Is Fruity'
+		dataType: string
+		lineageTag: cab7f64b-ef04-4bbf-a7e6-65f358eb77cc
+		summarizeBy: none
+		sourceColumn: Is Fruity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fruity_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 65bbb876-2279-4337-ab2b-f5cdf08d3b38
+		summarizeBy: none
+		sourceColumn: Fruity_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fruity = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WikwtVtJRMlSK1YlW8ssHMg2UYmMB", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Is Fruity" = _t, Fruity_Key = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Fruity_Key", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,40 @@
+relationship 7d20fe82-a71d-d151-3987-26e57b024d30
+	fromColumn: candy-data.'Peanuts & Almonds'
+	toColumn: Nuts.Nuts_Key
+
+relationship c6c600fa-470e-e0d9-65b4-dc57b70fc8ed
+	fromColumn: candy-data.Chocolate
+	toColumn: Chocolate.Chocolate_Key
+
+relationship AutoDetected_173625fb-3028-4fa4-8dd6-899ddc4868fa
+	fromColumn: candy-data.Fruity
+	toColumn: Fruity.Fruity_Key
+
+relationship AutoDetected_ace09d67-dc29-4bd8-a464-d44f9778a120
+	fromColumn: candy-data.Caramel
+	toColumn: Caramel.Caramel_Key
+
+relationship AutoDetected_659e7bc8-8271-45fa-aea5-7e632b7ca0ac
+	fromColumn: candy-data.Nougat
+	toColumn: Nougat.Nougat_Key
+
+relationship AutoDetected_f64f8509-a153-4741-9b48-b9d2f4831c78
+	fromColumn: candy-data.'Crisped Rice Wafer'
+	toColumn: 'Crisped Rice Wafer'.'Crisped Rice Wafer_Key'
+
+relationship AutoDetected_fc554327-bed2-42e3-b022-56143b0deb4d
+	fromColumn: candy-data.Hard
+	toColumn: Hard.Hard_Key
+
+relationship AutoDetected_a7c2a00f-771c-4821-b176-a8a4d2c02729
+	fromColumn: candy-data.Bar
+	toColumn: Bar.Bar_Key
+
+relationship AutoDetected_0b43261c-ffe5-470a-a122-d7e442095017
+	fromColumn: candy-data.Packaged
+	toColumn: Packaged.Packaged_Key
+
+relationship AutoDetected_cef32382-9e63-49a6-8210-74e95a39e754
+	fromColumn: candy-flavours.'Candy Name'
+	toColumn: candy-data.'Candy Name'
+

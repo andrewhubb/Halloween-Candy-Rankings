@@ -1,0 +1,33 @@
+table Chocolate
+	lineageTag: 4e37ae00-7b4b-4d56-98a9-dac92555f796
+
+	column Chocolate
+		dataType: string
+		lineageTag: 8d50ac8c-1ebd-4cee-9e61-7d12130e8057
+		summarizeBy: none
+		sourceColumn: Chocolate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Chocolate_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: a18bfb4b-a43e-4970-8d25-f6a503cae294
+		summarizeBy: none
+		sourceColumn: Chocolate_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Chocolate = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WikwtVtJRMlSK1YlW8ssHMg2UYmMB", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Chocolate = _t, #"Chocolate_Key" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Chocolate", type text}, {"Chocolate_Key", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

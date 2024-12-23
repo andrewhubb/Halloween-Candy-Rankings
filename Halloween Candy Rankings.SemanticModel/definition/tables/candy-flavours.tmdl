@@ -1,0 +1,140 @@
+table candy-flavours
+	lineageTag: 1cac1edd-0af5-4db2-a8d5-15f1dd085e72
+
+	column 'Candy Name'
+		dataType: string
+		lineageTag: c1a0adee-e4de-444d-a679-4ba3f154c543
+		summarizeBy: none
+		sourceColumn: Candy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 5da0ab5e-6375-4d76-b185-d02371436d1a
+		summarizeBy: none
+		sourceColumn: Type
+		sortByColumn: 'Type Sort Order'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sugar Group'
+		dataType: string
+		lineageTag: 6e32a7c4-2350-442a-a058-99bca667607f
+		summarizeBy: none
+		sourceColumn: Sugar Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Group'
+		dataType: string
+		lineageTag: 6830b244-4031-4170-8f67-5b0050fe751b
+		summarizeBy: none
+		sourceColumn: Price Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sugar Group Sort Order'
+		dataType: int64
+		formatString: 0
+		lineageTag: e680cc90-9d95-4d84-a8c1-78aa498d38fb
+		summarizeBy: sum
+		sourceColumn: Sugar Group Sort Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Group Sort Order'
+		dataType: int64
+		formatString: 0
+		lineageTag: 37b22ff5-e5fb-4202-a510-2013fa26f95f
+		summarizeBy: sum
+		sourceColumn: Price Group Sort Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flavour
+		dataType: string
+		lineageTag: 433de362-159f-4f13-b03e-228a094aeb86
+		summarizeBy: none
+		sourceColumn: Flavour
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Has Flavour'
+		dataType: int64
+		formatString: 0
+		lineageTag: d655a1c3-b074-4d62-a46a-c90ed4cc95b4
+		summarizeBy: sum
+		sourceColumn: Has Flavour
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Type Sort Order'
+		dataType: int64
+		formatString: 0
+		lineageTag: b4c2018d-8149-4b6d-ad15-d78b08d34baa
+		summarizeBy: sum
+		sourceColumn: Type Sort Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sugar Percent'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 583f2d43-8edb-4302-809a-103e75d6e826
+		summarizeBy: sum
+		sourceColumn: Sugar Percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Percent'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8b1427a0-41d2-4067-97f0-f843c94d2531
+		summarizeBy: sum
+		sourceColumn: Price Percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Win Percent'
+		dataType: double
+		lineageTag: a38c8be8-134b-4c7e-9e9a-f8dd115b45a6
+		summarizeBy: sum
+		sourceColumn: Win Percent
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Weighted Score'
+		dataType: double
+		formatString: 0.0
+		lineageTag: 9e359f6a-ec30-4a45-a8ba-96b2e5a78e2d
+		summarizeBy: sum
+		sourceColumn: Weighted Score
+
+		annotation SummarizationSetBy = Automatic
+
+	partition candy-flavours = m
+		mode: import
+		source =
+				let
+				    Source = #"candy-data",
+				    #"Added Conditional Column" = Table.AddColumn(Source, "Type Sort Order", each if [Type] = "Bar" then 1 else if [Type] = "Hard" then 2 else if [Type] = "Packaged" then 3 else 4),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Conditional Column",{{"Type Sort Order", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Rank", "Image_URL"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"Sugar Percent", "Price Percent", "Win Percent", "Sugar Group", "Price Group", "Sugar Group Sort Order", "Price Group Sort Order", "Type", "Weighted Score", "Type Sort Order", "Candy Name", "Chocolate", "Fruity", "Caramel", "Peanuts & Almonds", "Nougat", "Crisped Rice Wafer", "Hard", "Bar", "Packaged"}),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Reordered Columns",{"Hard", "Bar", "Packaged"}),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Removed Columns2",{"Candy Name", "Sugar Percent", "Price Percent", "Win Percent", "Sugar Group", "Price Group", "Sugar Group Sort Order", "Price Group Sort Order", "Type", "Weighted Score", "Type Sort Order", "Chocolate", "Fruity", "Caramel", "Peanuts & Almonds", "Nougat", "Crisped Rice Wafer"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Reordered Columns1",{{"Peanuts & Almonds", "Nuts"}}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Renamed Columns1", {"Type Sort Order", "Weighted Score", "Type", "Price Group Sort Order", "Sugar Group Sort Order", "Price Group", "Sugar Group", "Win Percent", "Price Percent", "Sugar Percent", "Candy Name"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "Flavour"}, {"Value", "Has Flavour"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

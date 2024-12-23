@@ -1,0 +1,35 @@
+expression 'File Path' = "D:\OneDrive - DataVizExpert\Data\006 - Maven Analytics\Challenge - Halloween Candy Rankings\candy-data.csv" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: b35971dd-f5bd-48f5-8789-ffdc0d33b7d6
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression candy-data-source =
+		let
+		    Source = Csv.Document(File.Contents(#"File Path"),[Delimiter=",", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"competitorname", type text}, {"chocolate", Int64.Type}, {"fruity", Int64.Type}, {"caramel", Int64.Type}, {"peanutyalmondy", Int64.Type}, {"nougat", Int64.Type}, {"crispedricewafer", Int64.Type}, {"hard", Int64.Type}, {"bar", Int64.Type}, {"pluribus", Int64.Type}, {"sugarpercent", type number}, {"pricepercent", type number}, {"winpercent", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 31f00730-4371-4ef3-b64c-849e410cbbb4
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression candy-image-urls =
+		let
+		    Source = Csv.Document(File.Contents("D:\OneDrive - DataVizExpert\Data\006 - Maven Analytics\Challenge - Halloween Candy Rankings\candy-image-urls.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}}),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"competitorname", type text}, {"Image_URL", type text}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"competitorname", "Candy Name"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: f23dbb04-8248-4456-8127-b3c15db3a7c7
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

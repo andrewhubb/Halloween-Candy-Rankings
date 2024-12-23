@@ -1,0 +1,176 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "candy-data",
+          "nodeLineageTag": "f162bb9a-793a-4f6c-a48a-47e208c07f50",
+          "size": {
+            "height": 198,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 873,
+            "y": 0
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "5d0490e7-927a-4abc-82c0-f45bf0b79c59",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 211.14285714285717,
+            "y": 305.42857142857144
+          },
+          "nodeIndex": "Nuts",
+          "nodeLineageTag": "b2206be2-5860-4239-ac1b-5715af97efe0",
+          "size": {
+            "height": 145,
+            "width": 156.85714285714283
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 305
+          },
+          "nodeIndex": "Chocolate",
+          "nodeLineageTag": "4e37ae00-7b4b-4d56-98a9-dac92555f796",
+          "size": {
+            "height": 145,
+            "width": 179.71428571428569
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 390.85714285714278,
+            "y": 306
+          },
+          "nodeIndex": "Caramel",
+          "nodeLineageTag": "0a505d08-e818-4846-8f78-bd147fa688e5",
+          "size": {
+            "height": 145,
+            "width": 151.14285714285711
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 560,
+            "y": 306.28571428571428
+          },
+          "nodeIndex": "Fruity",
+          "nodeLineageTag": "7255d30b-a1c5-4d81-81af-10050adf6036",
+          "size": {
+            "height": 145,
+            "width": 158.28571428571445
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 739.28571428571422,
+            "y": 306
+          },
+          "nodeIndex": "Nougat",
+          "nodeLineageTag": "5399bff2-ffac-40a4-af90-db69325456f8",
+          "size": {
+            "height": 145,
+            "width": 158.28571428571422
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 921.28571428571422,
+            "y": 304.5
+          },
+          "nodeIndex": "Bar",
+          "nodeLineageTag": "7b12326f-5f10-4a3b-8cbb-b6b3ee4dcdeb",
+          "size": {
+            "height": 145,
+            "width": 145
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1086.7142857142858,
+            "y": 307.35714285714283
+          },
+          "nodeIndex": "Crisped Rice Wafer",
+          "nodeLineageTag": "fb4a84fc-e43e-473f-af17-705ff9ad9058",
+          "size": {
+            "height": 145,
+            "width": 206.85714285714289
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1313.5714285714284,
+            "y": 307.35714285714289
+          },
+          "nodeIndex": "Hard",
+          "nodeLineageTag": "87e07761-51d1-4ede-a108-9d6c8964bfc5",
+          "size": {
+            "height": 145,
+            "width": 156.85714285714289
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1489.0000000000002,
+            "y": 304.50000000000006
+          },
+          "nodeIndex": "Packaged",
+          "size": {
+            "height": 145,
+            "width": 169.71428571428578
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1708.714285714286,
+            "y": 150.17857142857144
+          },
+          "nodeIndex": "candy-flavours",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 70,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
